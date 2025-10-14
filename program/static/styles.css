@@ -1,0 +1,14 @@
+.centerMenuItems {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* ensure all items are stacked on eachother vertically */
+    flex-direction: column;
+}
+
+.topRightMenuItems {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+}

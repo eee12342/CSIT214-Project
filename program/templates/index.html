@@ -1,8 +1,25 @@
 <html>
     <head>
         <title>Lounge with FlyDream</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
     </head>
     <body>
-        <img src="[FLYDREAM AIR LOGO SOURCE]" alt="FlyDream Air Company Logo" width="200" />
+        <!-- elements we want to be centered and are the main focus of the page -->
+        <div class="centerMenuItems">
+            <!-- replace the source once the image is available -->
+            <img src="[FLYDREAM AIR LOGO SOURCE]" alt="FlyDream Air Company Logo" width="200" />
+            <br /><br />
+
+            <input type="text" placeholder="search" />
+            <br />
+            <button>Explore Lounges</button><br />
+            <button>Memberships</button><br />
+            <button>FAQ</button>
+        </div>
+        <!-- our sign in/sign up options -->
+        <div class="topRightMenuItems">
+            <button>Sign In</button>
+            <button>Sign Up</button>
+        </div>
     </body>
 </html>
