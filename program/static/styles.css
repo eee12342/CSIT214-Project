@@ -6,9 +6,16 @@
     flex-direction: column;
 }
 
-.topRightMenuItems {
+.topMenuItems {
     display: flex;
     position: fixed;
     top: 0;
+}
+
+.right {
     right: 0;
+}
+
+.left {
+    left: 0;
 }
