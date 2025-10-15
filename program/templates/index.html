@@ -2,28 +2,44 @@
     <head>
         <title>Lounge with FlyDream</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+        <script src="{{ url_for('static', filename='homepage.js') }}"></script>
     </head>
     <body>
-        <!-- elements we want to be centered and are the main focus of the page -->
-        <div class="centerMenuItems">
-            <!-- replace the source once the image is available -->
-            <img src="[FLYDREAM AIR LOGO SOURCE]" alt="FlyDream Air Company Logo" width="200" />
-            <br /><br />
+        <!-- main content of the page -->
+        <div class="main">
+            <!-- elements we want to be centered and are the main focus of the page -->
+            <div class="centerMenuItems">
+                <!-- replace the source once the image is available -->
+                <img src="[FLYDREAM AIR LOGO SOURCE]" alt="FlyDream Air Company Logo" width="200" />
+                <br /><br />
 
-            <input type="text" placeholder="search" />
-            <br />
-            <button>Explore Lounges</button><br />
-            <button>Memberships</button><br />
-            <button>FAQ</button>
-        </div>
-        <!-- our sign in/sign up options -->
-        <div class="topMenuItems right">
-            <button>Sign In</button>
-            <button>Sign Up</button>
-        </div>
-        <!-- our closable side panel -->
-        <div class="topMenuItems left">
-            <button>Nav</button>
+                <div class="searchBar">
+                    <input type="text" placeholder="search lounges" />
+                    <button>Search</button>
+                </div>
+                <br />
+                <button>Explore Lounges</button><br />
+                <button>Memberships</button><br />
+                <button>FAQ</button>
+            </div>
+            <!-- our sign in/sign up options -->
+            <div class="topMenuItems right">
+                <button>Sign In</button>
+                <button>Sign Up</button>
+            </div>
+            <!-- our closable side panel -->
+            <div class="topMenuItems left">
+                <button id="sideBarButtonOpen" onClick="openSideBar()">Nav</button>
+                <div id="mainMenuNav" class="sideNav">
+                    <br />
+                    <a href="#">Home</a><br />
+                    <a href="#">Profile</a><br />
+                    <a href="#">Explore</a><br />
+                    <a href="#">Memberships</a><br />
+                    <a href="#">FAQ</a>
+                    <button id="sideBarButtonClose" onClick="closeSideBar()">X</button>
+                </div>
+            </div>
         </div>
     </body>
 </html>
