@@ -10,11 +10,11 @@
             <!-- elements we want to be centered and are the main focus of the page -->
             <div class="centerMenuItems">
                 <!-- replace the source once the image is available -->
-                <img src="[FLYDREAM AIR LOGO SOURCE]" alt="FlyDream Air Company Logo" width="200" />
+                <img src="{{ url_for('static', filename='images/flydream-logo.png') }}" alt="FlyDream Air Company Logo" width="200" />
                 <br /><br />
 
                 <div class="searchBar">
-                    <input type="text" placeholder="search lounges" />
+                    <input id="loungeSearch" type="text" placeholder="search lounges" />
                     <button>Search</button>
                 </div>
                 <br />

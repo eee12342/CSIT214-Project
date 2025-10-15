@@ -1,0 +1,39 @@
+.airportContainer {
+    margin-top: 40px;
+    border: 1px solid black;
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.loungeImage {
+    padding-right: 80px;
+}
+
+td {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.smallText {
+    font-size: 16px;
+    line-height: 2;
+}
+
+.smallText td {
+    font-size: 16px;
+    line-height: 2;
+}
+
+.description {
+    padding: 20px;
+}
+
+.airportContainer {
+    display: block;
+}
+.airportContainer table {
+    display: block;
+}

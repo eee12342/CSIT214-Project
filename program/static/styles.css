@@ -32,7 +32,7 @@ a {
     height: 100%;
     width: 0; /* sidebar is hidden until opened */
     position: fixed;
-    background-color: gray;
+    background-color: rgb(240, 234, 234);
     z-index: 1; /* stay on top */
     font-size: 0px; /* makes the text invisible */
     transition: 0.5s; /* makes sidebar transition to being open instead of just appearing */
@@ -45,4 +45,27 @@ a {
 
 #sideBarButton {
     transition: 0.5s;
+    padding: 5px 21px;
+    font-size: 20px;
+}
+
+.centerMenuItems button {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#loungeSearch {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 4px 16px
+}
+
+body {
+    background-color: rgba(181, 181, 230, 0.432);
 }

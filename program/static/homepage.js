@@ -2,11 +2,11 @@ var side_bar_open = false;
 function onSideBarClicked() {
     // check if side bar is already open or not and call respective functions
     if (side_bar_open) {
-        closeSideBar()
+        closeSideBar();
         side_bar_open = false;
     }
     else {
-        openSideBar()
+        openSideBar();
         side_bar_open = true;
     }
 }
@@ -22,6 +22,7 @@ function openSideBar() {
     var sideBarButton = document.getElementById("sideBarButton");
     sideBarButton.style.right = "0";
     sideBarButton.style.position = "absolute";
+    sideBarButton.innerHTML = "<";
 
 }
 
@@ -33,6 +34,7 @@ function closeSideBar() {
 
     // move the sidebar button back to the top left of the screen
     var sideBarButton = document.getElementById("sideBarButton");
-    sideBarButton.style.right = "-40";
+    sideBarButton.style.right = "-57";
+    sideBarButton.innerHTML = ">";
 
 }

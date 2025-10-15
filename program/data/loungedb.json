@@ -4,8 +4,38 @@
             "id": "0001",
             "name": "JFK International Lounge",
             "airport": "JFK International",
-            "level": "Business",
-            "points": "200"
+            "included_with": "Business",
+            "points": "200",
+            "available": true,
+            "price_aud": "150",
+            "amenities": [
+                "Buffet",
+                "A La Carte Dining",
+                "Bar",
+                "Sleep Room",
+                "High-speed WiFi"
+            ],
+            "description": "Situated within John F. Kennedy International Airport's global terminals, the JFK International Lounge delivers an elegant escape from the hustle of one of the world's busiest airports. Expect premium amenities like curated food and beverage offerings, quiet zones for productivity or rest, shower facilities, and seamless access to international gates - all crafted to elevate your pre-flight experience.",
+            "img_url": "https://www.skyclub.com/wp-content/uploads/2017/02/jfk-virgin-atlantic-clubhouse.jpg"
+        },
+        {
+            "id": "0002",
+            "name": "LAX International Lounge",
+            "airport": "LAX International",
+            "included_with": "First",
+            "points": "400",
+            "available": false,
+            "price_aud": "250",
+            "amenities": [
+                "Buffet",
+                "A La Carte Dining",
+                "Bar",
+                "Family Room",
+                "High-speed WiFi",
+                "Sports Viewing Area"
+            ],
+            "description": "Nestled in the Tom Bradley International Terminal (TBIT) at Los Angeles International Airport, the LAX International Lounge offers a refined sanctuary for global travelers. With plush seating, gourmet dining, private workspaces, complimentary WiFi, and spa-style shower suites, it's designed to help guests relax, refresh, or work in comfort before their international flights.",
+            "img_url": "https://ca-times.brightspotcdn.com/dims4/default/39a58f4/2147483647/strip/true/crop/1227x674+0+0/resize/1200x659!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fce%2Fa7%2Fdc4acbd14b4c933341b593975173%2Flax-rendering-2.png"
         }
     ]
 }
