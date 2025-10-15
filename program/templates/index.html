@@ -29,15 +29,16 @@
             </div>
             <!-- our closable side panel -->
             <div class="topMenuItems left">
-                <button id="sideBarButtonOpen" onClick="openSideBar()">Nav</button>
                 <div id="mainMenuNav" class="sideNav">
+                    <button id="sideBarButton" onClick="onSideBarClicked()">Nav</button>
                     <br />
-                    <a href="#">Home</a><br />
-                    <a href="#">Profile</a><br />
-                    <a href="#">Explore</a><br />
-                    <a href="#">Memberships</a><br />
-                    <a href="#">FAQ</a>
-                    <button id="sideBarButtonClose" onClick="closeSideBar()">X</button>
+                    <div class="sideBarLinks">
+                        <a href="#">Home</a><br />
+                        <a href="#">Profile</a><br />
+                        <a href="#">Explore</a><br />
+                        <a href="#">Memberships</a><br />
+                        <a href="#">FAQ</a>
+                    </div>
                 </div>
             </div>
         </div>

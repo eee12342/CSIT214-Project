@@ -30,24 +30,16 @@ button {
     position: fixed;
     background-color: gray;
     z-index: 1; /* stay on top */
-    text-align: center;
     font-size: 0px; /* makes the text invisible */
     transition: 0.5s; /* makes sidebar transition to being open instead of just appearing */
     text-decoration: none; /* removes the underline thing */
 }
 
-#sideBarButtonOpen {
-    transition: 1s;
+.sideBarLinks {
+    text-align: center;
 }
 
-#sideBarButtonClose {
-    color: white;
-    background-color: gray;
-    width: 0px;
-    /* position the close button at the top right of the nav bar */
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    margin-right: 5px;
+
+#sideBarButton {
+    transition: 0.5s;
 }
