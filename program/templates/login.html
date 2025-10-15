@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Sign in to your FlyDream Air lounge account</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}" />
+    </head>
+    <body>
+        <div class="main">
+            <form action="{{ url_for('login') }}" method="post">
+                <table>
+                    <tr>
+                        <td>Username: </td>
+                        <td><input type="text" name="username" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password: </td>
+                        <td><input type="password" name="password" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><br /><button type="submit">Sign in</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
