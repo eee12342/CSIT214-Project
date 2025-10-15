@@ -1,0 +1,11 @@
+{
+    "lounges": [
+        {
+            "id": "0001",
+            "name": "JFK International Lounge",
+            "airport": "JFK International",
+            "level": "Business",
+            "points": "200"
+        }
+    ]
+}

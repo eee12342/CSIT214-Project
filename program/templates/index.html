@@ -18,7 +18,7 @@
                     <button>Search</button>
                 </div>
                 <br />
-                <button>Explore Lounges</button><br />
+                <button><a href="{{ url_for('explore') }}">Explore Lounges</a></button><br />
                 <button>Memberships</button><br />
                 <button>FAQ</button>
             </div>
@@ -35,19 +35,6 @@
             </div>
             <!-- our closable side panel -->
             {% include "navbar.html" %}
-            <!-- <div class="topMenuItems left">
-                <div id="mainMenuNav" class="sideNav">
-                    <button id="sideBarButton" onClick="onSideBarClicked()">Nav</button>
-                    <br />
-                    <div class="sideBarLinks">
-                        <a href="#">Home</a><br />
-                        <a href="#">Profile</a><br />
-                        <a href="#">Explore</a><br />
-                        <a href="#">Memberships</a><br />
-                        <a href="#">FAQ</a>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </body>
 </html>

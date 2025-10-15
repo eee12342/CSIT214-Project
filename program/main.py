@@ -19,21 +19,34 @@ class User():
     def set_login_status(flag):
         User._User__logged_in = flag
 
+
 # loads the user database json as a dictionary
 def get_user_from_json():
-    with open("userdb.json", "r") as file:
+    with open("data/userdb.json", "r") as file:
         return json.load(file)
     
 # saves all users back to the json
 def save_users_to_json(users):
-    with open("userdb.json", "w") as file:
+    with open("data/userdb.json", "w") as file:
         json.dump(users, file, indent=4)
+
+def get_lounge_data_from_json():
+    with open("data/loungedb.json", "r") as file:
+        return json.load(file)
+
 
 # our main landing page
 @app.route("/")
 def hello_world():
     print(User.get_login_status())
     return render_template("index.html", user=User)
+
+# explore lounges page
+@app.route("/explore")
+def explore():
+    lounge_data = get_lounge_data_from_json().get("lounges")
+    print(lounge_data)
+    return render_template("explore.html", lounge_data=lounge_data)
 
 
 # if user does not yet have an account
@@ -90,13 +103,13 @@ def login():
         else:
             print("USER NOT FOUND")
 
-
         print(User.get_login_status())
         # go back to the landing page 
         return redirect(url_for("hello_world"))
     
     # if we are simply request the page, just load it
     return render_template("login.html")
+
 
 # if we decide to logout
 @app.route("/logout", methods=["GET", "POST"])
