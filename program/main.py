@@ -33,6 +33,17 @@ def save_users_to_json(users):
 def get_lounge_data_from_json():
     with open("data/loungedb.json", "r") as file:
         return json.load(file)
+    
+def get_searched_lounge_data(query):
+    data = get_lounge_data_from_json()
+    lounges = data.get("lounges")
+
+    results = []
+    for lounge in lounges:
+        if query.lower() in lounge["name"].lower():
+            results.append(lounge)
+
+    return results
 
 
 # our main landing page
@@ -44,9 +55,15 @@ def hello_world():
 # explore lounges page
 @app.route("/explore")
 def explore():
-    lounge_data = get_lounge_data_from_json().get("lounges")
-    print(lounge_data)
+    query = request.args.get("query")
+    if query:
+        lounge_data = get_searched_lounge_data(query)
+    else:
+        lounge_data = get_lounge_data_from_json().get("lounges")
+        print(lounge_data)
+
     return render_template("explore.html", lounge_data=lounge_data)
+
 
 
 # if user does not yet have an account
@@ -99,9 +116,9 @@ def login():
                 # we are now logged in
                 User.set_login_status(True)
             else:
-                print("LOGIN UNSUCCESSFUL")
+                return redirect(url_for("login"))
         else:
-            print("USER NOT FOUND")
+            return redirect(url_for("login"))
 
         print(User.get_login_status())
         # go back to the landing page 

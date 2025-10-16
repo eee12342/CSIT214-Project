@@ -1,8 +1,24 @@
 <html>
     <head>
         <title>Book a lounge</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='book.css') }}" />
     </head>
     <book>
         {% include "navbar.html" %}
+
+        <div class="main">
+            <form id="paymentForm" action="INSERT ROUTE">
+                <table>
+                    <tr>
+                        <td>Pay with credit card:</td>
+                        <td><input type="radio" name="payment_option" value="money" /></td>
+                    </tr>
+                    <tr>
+                        <td>Pay with points:</td>
+                        <td><input type="radio" name="payment_option" value="points" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
     </book>
 </html>

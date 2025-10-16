@@ -1,7 +1,6 @@
 .airportContainer {
     margin-top: 40px;
     border: 1px solid black;
-    width: 40vw;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -28,12 +27,14 @@ td {
 }
 
 .description {
-    padding: 20px;
+    padding: 20px 20px 20px 300px;
+    width: 300px;
 }
 
 .airportContainer {
     display: block;
 }
+
 .airportContainer table {
     display: block;
 }

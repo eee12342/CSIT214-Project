@@ -1,0 +1,16 @@
+#paymentForm {
+    font-size: 200px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+}
+
+tr {
+    border: 1px solid black;
+    padding: 30px;
+}

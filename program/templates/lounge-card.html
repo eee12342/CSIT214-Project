@@ -1,0 +1,39 @@
+{% macro lounge_card(lounge) %}
+    <div class="airportContainer">
+        <table>
+            <tr>
+                <td colspan="3"><img class="loungeImage" src="{{ lounge['img_url'] }}" alt="Image of Lounge" width="700px" /></td>
+            </tr>
+            <tr>
+                <td>Name: </td>
+                <td>{{ lounge["name"] }}</td>
+                <td class="description smallText" rowspan="5">Description: <br />{{ lounge["description"] }}</td>
+            </tr>
+            <tr>
+                <td>Included with: </td>
+                <td>{{ lounge["included_with"] }} class</td>
+            </tr>
+            <tr>
+                <td>Points: </td>
+                <td>{{ lounge["points"] }}</td>
+            </tr>
+            <tr>
+                <td>Price: </td>
+                <td>${{ lounge["price_aud"] }} AUD</td>
+            </tr>
+            <tr>
+                <td>Ameneties: </td>
+                <td class="smallText">
+                    <ul>
+                        {% for amenity in lounge["amenities"] %}
+                            <li>{{ amenity }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <button><a href="{{ url_for('book') }}">Book now!</a></button>
+    </div>
+{%- endmacro %}

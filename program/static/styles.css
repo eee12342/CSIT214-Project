@@ -40,8 +40,13 @@ a {
 
 .sideBarLinks {
     text-align: center;
+    margin-top: 15px;
 }
 
+.sideBarLinks a {
+    display: block;
+    padding: 10px 30px;
+}
 
 #sideBarButton {
     transition: 0.5s;
@@ -50,14 +55,16 @@ a {
 }
 
 .centerMenuItems button {
-    border: 2px solid black;
-    border-radius: 10px;
+    border: 1.5px solid black;
+    font-weight: bold;
+    border-radius: 12px;
     padding: 7px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 30px;
 }
 
 #loungeSearch {
