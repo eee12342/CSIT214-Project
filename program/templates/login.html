@@ -4,6 +4,9 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}" />
     </head>
     <body>
+        {% if message %}
+            <p id="errorMessage">{{ message }}</p><br /><br />
+        {% endif %}
         <div class="main">
             {% include "navbar.html" %}
             <form action="{{ url_for('login') }}" method="post">
@@ -19,6 +22,10 @@
                     <tr>
                         <td></td>
                         <td><br /><button type="submit">Sign in</button></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Don't have an account? <a href="{{ url_for('signup') }}">Create one</a></td>
                     </tr>
                 </table>
             </form>

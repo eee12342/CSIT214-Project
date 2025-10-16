@@ -8,6 +8,7 @@ app = Flask(__name__)
 class User():
     # private attribute, we should only access it through get and set methods
     __logged_in = False
+    __error_msg = ""
 
     @staticmethod
     # returns boolean of if user is logged in or not
@@ -18,6 +19,16 @@ class User():
     # flag is a boolean, sets whether or not user is logged in
     def set_login_status(flag):
         User._User__logged_in = flag
+
+    @staticmethod
+    # returns users most recent error message
+    def get_error_msg():
+        return User._User__error_msg
+
+    @staticmethod
+    # sets user's most recent error message to argument provided
+    def set_error_msg(msg):
+        User._User__error_msg = msg
 
 
 # loads the user database json as a dictionary
@@ -115,17 +126,21 @@ def login():
                 print("LOGIN SUCCESS")
                 # we are now logged in
                 User.set_login_status(True)
+                User.set_error_msg("")
             else:
+                User.set_error_msg("Password invalid. Please try again.")
                 return redirect(url_for("login"))
         else:
+            User.set_error_msg("This username is not associated with an account. Please try again or create an account.")
             return redirect(url_for("login"))
 
         print(User.get_login_status())
         # go back to the landing page 
         return redirect(url_for("hello_world"))
     
+    message = User.get_error_msg()
     # if we are simply request the page, just load it
-    return render_template("login.html")
+    return render_template("login.html", message=message)
 
 
 # if we decide to logout
