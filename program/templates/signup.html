@@ -4,6 +4,9 @@
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}" />
     </head>
     <body>
+        {% if message %}
+            <p id="errorMessage">{{ message }}</p><br /><br />
+        {% endif %}
         <div class="main">
             {% include "navbar.html" %}
             <form action="{{ url_for('signup') }}" method="post">

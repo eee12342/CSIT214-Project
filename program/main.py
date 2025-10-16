@@ -10,6 +10,9 @@ class User():
     __logged_in = False
     __error_msg = ""
 
+    # public attributes, we can just access them directly
+    current_page = ""
+
     @staticmethod
     # returns boolean of if user is logged in or not
     def get_login_status():
@@ -84,6 +87,12 @@ def signup():
         users = get_user_from_json()
         username = request.form["username"]
 
+        # check that username isn't already taken
+        for user in users.keys():
+            if username == user:
+                User.set_error_msg("Username already taken. Please try another.")
+                return redirect(url_for("signup"))
+
         # hash the password BEFORE checking it against the database
         sha256_hash = hashlib.sha256()
         sha256_hash.update(request.form["password"].encode('utf-8'))
@@ -96,9 +105,10 @@ def signup():
 
         # we are now logged in
         User.set_login_status(True)
+        User.set_error_msg("")
 
         return redirect(url_for("hello_world"))
-    return render_template("signup.html")
+    return render_template("signup.html", message=User.get_error_msg())
 
 
 # login page
@@ -127,6 +137,10 @@ def login():
                 # we are now logged in
                 User.set_login_status(True)
                 User.set_error_msg("")
+
+                redirect_page = User.current_page
+                if redirect:
+                    return redirect(url_for(redirect_page))
             else:
                 User.set_error_msg("Password invalid. Please try again.")
                 return redirect(url_for("login"))
@@ -152,9 +166,12 @@ def logout():
     return redirect(url_for("hello_world"))
 
 
-# customer makes bookign
+# customer makes booking
 @app.route("/book")
 def book():
+    if not User.get_login_status():
+        User.current_page = "explore"
+        return redirect(url_for("login"))
     return render_template("book.html")
 
 
