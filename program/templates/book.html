@@ -9,14 +9,18 @@
         <div class="main">
             <form id="paymentForm" action="INSERT ROUTE">
                 <table>
-                    <tr>
-                        <td>Pay with credit card:</td>
-                        <td><input type="radio" name="payment_option" value="money" /></td>
-                    </tr>
-                    <tr>
-                        <td>Pay with points:</td>
-                        <td><input type="radio" name="payment_option" value="points" /></td>
-                    </tr>
+                    <div class="paymentOptionContainer">
+                        <tr>
+                            <td>Pay with credit card:</td>
+                            <td><input type="radio" name="payment_option" value="money" /></td>
+                        </tr>
+                    </div>
+                    <div class="paymentOptionContainer">
+                        <tr>
+                            <td>Pay with points:</td>
+                            <td><input type="radio" name="payment_option" value="points" /></td>
+                        </tr>
+                    </div>
                 </table>
             </form>
         </div>
