@@ -107,6 +107,10 @@ def signup():
         User.set_login_status(True)
         User.set_error_msg("")
 
+        redirect_page = User.current_page
+        if redirect_page:
+            return redirect(url_for(redirect_page))
+
         return redirect(url_for("hello_world"))
     return render_template("signup.html", message=User.get_error_msg())
 
