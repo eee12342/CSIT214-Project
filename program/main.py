@@ -12,6 +12,8 @@ class User():
 
     # public attributes, we can just access them directly
     current_page = ""
+    points = 0
+    username = ""
 
     @staticmethod
     # returns boolean of if user is logged in or not
@@ -59,11 +61,26 @@ def get_searched_lounge_data(query):
 
     return results
 
+def get_user_data():
+    with open("data/userdata.json", "r") as file:
+        return json.load(file)
+    
+def save_user_data(user_data):
+    with open("data/userdata.json", "w") as file:
+        json.dump(user_data, file, indent=4)
+
+def refresh_points():
+    user_data = get_user_data()
+    User.points = user_data[User.username]["points"]
+
 
 # our main landing page
 @app.route("/")
 def hello_world():
+    if User.get_login_status():
+        refresh_points()
     print(User.get_login_status())
+    print(get_user_data())
     return render_template("index.html", user=User)
 
 # explore lounges page
@@ -103,6 +120,14 @@ def signup():
 
         save_users_to_json(users)
 
+        # create new user data and set points to 0
+        user_data = get_user_data()
+        user_data[username] = {"points": 0}
+        User.points = 0
+        save_user_data(user_data)
+
+        User.username = username
+
         # we are now logged in
         User.set_login_status(True)
         User.set_error_msg("")
@@ -141,9 +166,10 @@ def login():
                 # we are now logged in
                 User.set_login_status(True)
                 User.set_error_msg("")
+                User.username = username
 
                 redirect_page = User.current_page
-                if redirect:
+                if redirect_page:
                     return redirect(url_for(redirect_page))
             else:
                 User.set_error_msg("Password invalid. Please try again.")
@@ -177,6 +203,13 @@ def book():
         User.current_page = "explore"
         return redirect(url_for("login"))
     return render_template("book.html")
+
+
+@app.route("/pay")
+def pay():
+    if request.form["payment_option"] == "money":
+        User.points += 100
+        return redirect(url_for("hello_world"))
 
 
 if __name__ == "__main__":

@@ -1,8 +1,7 @@
 #paymentForm {
-    font-size: 200px;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    font-size: 20px;
+    margin-top: 60px;
+    font-weight: bold;
 }
 
 input[type="radio"] {
@@ -10,6 +9,12 @@ input[type="radio"] {
     height: 20px;
 }
 
-table{
-    border: 1px solid black;
+.paymentOptionContainer {
+    border: 1.5px solid black;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 30px;
+    padding: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
 }

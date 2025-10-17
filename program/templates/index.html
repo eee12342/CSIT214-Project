@@ -31,6 +31,7 @@
                     <button><a href="{{ url_for('signup') }}">Sign Up</a></button>
                 {% else %}
                     <form action="{{ url_for('logout') }}">
+                        Points: {{ user.points }}
                         <button type="submit">Sign out</button>
                     </form>
                 {% endif %}
