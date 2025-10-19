@@ -209,6 +209,7 @@ def book():
 def pay():
     if request.form["payment_option"] == "money":
         User.points += 100
+        
         return redirect(url_for("hello_world"))
 
 
