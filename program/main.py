@@ -14,6 +14,7 @@ class User():
     current_page = ""
     points = 0
     username = ""
+    current_booking_id = ""
 
     @staticmethod
     # returns boolean of if user is logged in or not
@@ -72,6 +73,11 @@ def save_user_data(user_data):
 def refresh_points():
     user_data = get_user_data()
     User.points = user_data[User.username]["points"]
+
+def add_points(amount):
+    user_data = get_user_data()
+    user_data[User.username]["points"] += amount
+    save_user_data(user_data)
 
 
 # our main landing page
@@ -202,15 +208,15 @@ def book():
     if not User.get_login_status():
         User.current_page = "explore"
         return redirect(url_for("login"))
+    print(request.args["lounge_id"])
     return render_template("book.html")
 
 
 @app.route("/pay")
 def pay():
-    if request.form["payment_option"] == "money":
-        User.points += 100
-        
-        return redirect(url_for("hello_world"))
+    add_points(100)
+    print("CALLED")
+    return redirect(url_for("hello_world"))
 
 
 if __name__ == "__main__":

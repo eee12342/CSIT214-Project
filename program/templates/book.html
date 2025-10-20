@@ -7,7 +7,7 @@
         {% include "navbar.html" %}
 
         <div class="main">
-            <form id="paymentForm" action="{{ url_for('hello_world') }}">
+            <form id="paymentForm" action="{{ url_for('pay') }}">
                 <div class="paymentOptionContainer">
                     <input type="radio" name="payment_option" value="money" />
                     Pay with credit card

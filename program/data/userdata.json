@@ -1,8 +1,11 @@
 {
     "eamon": {
-        "points": 0
+        "points": 100
     },
     "peter": {
+        "points": 0
+    },
+    "jsmith": {
         "points": 0
     }
 }
