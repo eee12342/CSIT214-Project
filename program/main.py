@@ -205,6 +205,7 @@ def logout():
 # customer makes booking
 @app.route("/book")
 def book():
+    print(User.get_login_status())
     if not User.get_login_status():
         User.current_page = "explore"
         return redirect(url_for("login"))
