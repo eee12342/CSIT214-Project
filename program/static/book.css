@@ -18,3 +18,10 @@ input[type="radio"] {
     margin-left: 40px;
     margin-right: 40px;
 }
+
+h3 {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+    margin-top: 40px;
+}

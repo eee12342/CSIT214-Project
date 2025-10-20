@@ -79,6 +79,12 @@ def add_points(amount):
     user_data[User.username]["points"] += amount
     save_user_data(user_data)
 
+def get_lounge_by_id(id):
+    lounge_data = get_lounge_data_from_json()
+    for lounge in lounge_data["lounges"]:
+        if lounge["id"] == id:
+            return lounge
+
 
 # our main landing page
 @app.route("/")
@@ -209,14 +215,17 @@ def book():
     if not User.get_login_status():
         User.current_page = "explore"
         return redirect(url_for("login"))
-    print(request.args["lounge_id"])
-    return render_template("book.html")
+    lounge = get_lounge_by_id(request.args["lounge_id"])
+    return render_template("book.html", lounge=lounge)
 
 
 @app.route("/pay")
 def pay():
-    add_points(100)
-    print("CALLED")
+    if request.args["payment_option"] == "money":
+        add_points(100)
+    elif request.args["payment_option"] == "points":
+        print("POINTS")
+        add_points(-100)
     return redirect(url_for("hello_world"))
 
 
