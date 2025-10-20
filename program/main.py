@@ -85,6 +85,22 @@ def get_lounge_by_id(id):
         if lounge["id"] == id:
             return lounge
 
+def add_booking(username, lounge, start, end, date):
+    user_data = get_user_data()
+    bookings = user_data[username].get("bookings")
+    booking_info = {
+        "id": lounge["id"],
+        "start_time": start,
+        "end_time": end,
+        "date": date,
+    }
+    if bookings:
+        user_data[username]["bookings"].append(booking_info)
+    else:
+        user_data[username]["bookings"] = [booking_info]
+
+    save_user_data(user_data)
+
 
 # our main landing page
 @app.route("/")
@@ -219,14 +235,39 @@ def book():
     return render_template("book.html", lounge=lounge)
 
 
-@app.route("/pay")
+@app.route("/pay", methods=["GET", "POST"])
 def pay():
-    if request.args["payment_option"] == "money":
-        add_points(100)
-    elif request.args["payment_option"] == "points":
+    lounge_id = request.args["lounge_id"]
+    lounge = get_lounge_by_id(lounge_id)
+    lounge_point_cost = int(lounge["points"])
+
+    if request.form["payment_option"] == "money":
+        add_points(50)
+    elif request.form["payment_option"] == "points":
         print("POINTS")
-        add_points(-100)
+        add_points(-lounge_point_cost)
+    
+    print(request.form["start_time"], request.form["end_time"], request.form["booking_date"])
+    add_booking(User.username, lounge, request.form["start_time"], request.form["end_time"], request.form["booking_date"])
     return redirect(url_for("hello_world"))
+
+@app.route("/profile")
+def profile():
+    if User.get_login_status():
+        username = User.username
+        user_data = get_user_data()[username]
+
+        booking_ids = user_data.get("bookings")
+        bookings = []
+        for booking_id in booking_ids:
+            bookings.append(get_lounge_by_id(booking_id))
+
+        
+        return render_template("profile.html", username=username, user_data=user_data, bookings=bookings)
+    else:
+        User.current_page = "profile"
+        return redirect(url_for("login"))
+        
 
 
 if __name__ == "__main__":

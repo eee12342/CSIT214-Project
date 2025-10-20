@@ -1,6 +1,14 @@
 {
     "eamon": {
-        "points": 0
+        "points": 500,
+        "bookings": [
+            {
+                "id": "0001",
+                "start_time": "11:00",
+                "end_time": "14:30",
+                "date": "2025-10-25"
+            }
+        ]
     },
     "peter": {
         "points": 0

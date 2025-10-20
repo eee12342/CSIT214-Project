@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>My profile</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='profile.css') }}" />
+    </head>
+    <body>
+        {% include "navbar.html" %}
+        <h1>{{ username }}'s profile</h1>
+        <div class="profileContent">
+            <p>Points: {{ user_data["points"] }}</p>
+            <a href="INSERT URL">My bookings</a>
+            {% if bookings %}
+                <ul>
+                    {% for booking in bookings %}
+                        <li>{{ booking["name"] }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </body>
+</html>

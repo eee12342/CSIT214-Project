@@ -3,12 +3,20 @@
         <title>Book a lounge</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='book.css') }}" />
     </head>
-    <book>
+    <body>
         {% include "navbar.html" %}
 
         <div class="main">
             <h3>Book the {{ lounge["name"] }}</h3>
-            <form id="paymentForm" action="{{ url_for('pay', lounge_id=lounge['id']) }}">
+
+            <form id="paymentForm" method="post" action="{{ url_for('pay', lounge_id=lounge['id']) }}">
+                
+                <div class="dateTimeForm">
+                Enter date: <input type="date" name="booking_date" /><br />
+                Enter start time: <input type="time" name="start_time" /><br />
+                Enter departure time: <input type="time" name="end_time" />
+                </div>
+
                 <div class="paymentOptionContainer">
                     <input type="radio" name="payment_option" value="money" />
                     Pay with credit card
@@ -21,5 +29,5 @@
                 <button type="submit">Submit</button>
             </form>
         </div>
-    </book>
+    </body>
 </html>
