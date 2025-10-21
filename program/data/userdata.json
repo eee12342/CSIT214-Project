@@ -1,12 +1,18 @@
 {
     "eamon": {
-        "points": 500,
+        "points": 550,
         "bookings": [
             {
                 "id": "0001",
                 "start_time": "11:00",
                 "end_time": "14:30",
                 "date": "2025-10-25"
+            },
+            {
+                "id": "0002",
+                "start_time": "13:00",
+                "end_time": "21:30",
+                "date": "2025-11-30"
             }
         ]
     },
@@ -14,6 +20,9 @@
         "points": 0
     },
     "jsmith": {
-        "points": 0
+        "points": 50,
+        "bookings": [
+            null
+        ]
     }
 }

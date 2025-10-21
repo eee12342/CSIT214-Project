@@ -34,6 +34,11 @@
         </table>
         <br />
         <br />
-        <button><a href="{{ url_for('book', lounge_id=lounge['id']) }}">Book now!</a></button>
+        {% if lounge in booked_lounges %}
+            <button><a href="{{ url_for('book', lounge_id=lounge['id']) }}">Book now!</a></button>
+        {% else %}
+            <button><a href="{{ url_for('book', lounge_id=lounge['id']) }}">Make another booking!</a></button>
+            <button><a href="{{ url_for('cancel', lounge_id=lounge['id']) }}">Cancel booking</a></button>
+        {% endif %}
     </div>
 {%- endmacro %}

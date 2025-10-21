@@ -8,13 +8,16 @@
         <h1>{{ username }}'s profile</h1>
         <div class="profileContent">
             <p>Points: {{ user_data["points"] }}</p>
-            <a href="INSERT URL">My bookings</a>
+            My bookings
             {% if bookings %}
                 <ul>
-                    {% for booking in bookings %}
-                        <li>{{ booking["name"] }}</li>
+                    {% for i in range(bookings|length) %}
+                        {% set booking = bookings[i] %}
+                        {% set booking_info = user_data["bookings"][i] %}
+                        <li>{{ booking["name"] }} on {{ booking_info["date"] }} from {{ booking_info["start_time"] }} to {{ booking_info["end_time"] }}</li>
                     {% endfor %}
                 </ul>
+                <a href="{{ url_for('explore', query='booked') }}"><i>See all</i></a>
             {% endif %}
         </div>
     </body>

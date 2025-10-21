@@ -102,6 +102,26 @@ def add_booking(username, lounge, start, end, date):
     save_user_data(user_data)
 
 
+def get_booked_lounges():
+    user_data = get_user_data()[User.username]
+    bookings = []
+    user_bookings = user_data.get("bookings")
+    if user_bookings:
+        for booking in user_bookings:
+            bookings.append(get_lounge_by_id(booking["id"]))
+    return bookings
+
+def cancel_booking(id):
+    user_data = get_user_data()
+    for i in range(len(user_data[User.username]["bookings"])):
+        booking = user_data[User.username]["bookings"][i]
+        if booking["id"] == id:
+            user_data[User.username]["bookings"][i] = None
+    
+    save_user_data(user_data)
+
+
+
 # our main landing page
 @app.route("/")
 def hello_world():
@@ -114,14 +134,17 @@ def hello_world():
 # explore lounges page
 @app.route("/explore")
 def explore():
-    query = request.args.get("query")
-    if query:
+    query = request.form.get("query")
+    if request.args.get("query") == "booked":
+        lounge_data = get_booked_lounges()
+    elif query:
         lounge_data = get_searched_lounge_data(query)
-    else:
+    if not lounge_data:
         lounge_data = get_lounge_data_from_json().get("lounges")
-        print(lounge_data)
 
-    return render_template("explore.html", lounge_data=lounge_data)
+    booked_lounges = get_booked_lounges()
+
+    return render_template("explore.html", lounge_data=lounge_data, booked_lounges=booked_lounges)
 
 
 
@@ -257,17 +280,23 @@ def profile():
         username = User.username
         user_data = get_user_data()[username]
 
-        booking_ids = user_data.get("bookings")
-        bookings = []
-        for booking_id in booking_ids:
-            bookings.append(get_lounge_by_id(booking_id))
+        bookings = user_data["bookings"]
+        lounge_details = []
+        for booking in bookings:
+            booking_id = booking["id"]
+            lounge_details.append(get_lounge_by_id(booking_id))
 
-        
-        return render_template("profile.html", username=username, user_data=user_data, bookings=bookings)
+        return render_template("profile.html", username=username, user_data=user_data, bookings=lounge_details)
     else:
         User.current_page = "profile"
         return redirect(url_for("login"))
-        
+
+
+@app.route("/cancel")
+def cancel():
+    lounge_id = request.args["lounge_id"]
+    cancel_booking(lounge_id)
+    return redirect(url_for("hello_world"))
 
 
 if __name__ == "__main__":
