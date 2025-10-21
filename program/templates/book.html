@@ -7,6 +7,9 @@
         {% include "navbar.html" %}
 
         <div class="main">
+            {% if message %}
+                <p style="display: flex; justify-content: center; margin-top: 30px; color: red;">{{ message }}</p>
+            {% endif %}
             <h3>Book the {{ lounge["name"] }}</h3>
 
             <form id="paymentForm" method="post" action="{{ url_for('pay', lounge_id=lounge['id']) }}">

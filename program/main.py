@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask, render_template, url_for, request, redirect
 import hashlib
 import json
@@ -267,8 +268,8 @@ def book():
     if not User.get_login_status():
         User.current_page = "explore"
         return redirect(url_for("login"))
-    lounge = get_lounge_by_id(request.args["lounge_id"])
-    return render_template("book.html", lounge=lounge)
+    lounge = get_lounge_by_id(request.args.get("lounge_id"))
+    return render_template("book.html", lounge=lounge, message=request.args.get("message"))
 
 
 @app.route("/pay", methods=["GET", "POST"])
@@ -277,13 +278,23 @@ def pay():
     lounge = get_lounge_by_id(lounge_id)
     lounge_point_cost = int(lounge["points"])
 
+    fmt = "%H:%M"
+    time1 = datetime.strptime(request.form["end_time"], fmt)
+    time2 = datetime.strptime(request.form["start_time"], fmt)
+    booking_hours = time1 - time2
+    booking_time = booking_hours.total_seconds() / 3600
+
     if request.form["payment_option"] == "money":
-        add_points(50)
+        point_cost = int(lounge["points"]) * booking_time
+        add_points(point_cost)
     elif request.form["payment_option"] == "points":
-        print("POINTS")
-        add_points(-lounge_point_cost)
+        
+        
+        point_cost = int(lounge["points"]) * booking_time * 4
+        if point_cost > int(lounge["points"]):
+            return redirect(url_for("book", lounge_id=lounge["id"], message="Not enough points for this booking"))
+        add_points(-point_cost)
     
-    print(request.form["start_time"], request.form["end_time"], request.form["booking_date"])
     add_booking(User.username, lounge, request.form["start_time"], request.form["end_time"], request.form["booking_date"])
     return redirect(url_for("hello_world"))
 
