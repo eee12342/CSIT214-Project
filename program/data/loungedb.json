@@ -7,7 +7,7 @@
             "included_with": "Business",
             "points": "200",
             "available": true,
-            "price_aud": "150",
+            "price_aud": "70",
             "amenities": [
                 "Buffet",
                 "A La Carte Dining",
@@ -25,7 +25,7 @@
             "included_with": "First",
             "points": "400",
             "available": false,
-            "price_aud": "250",
+            "price_aud": "100",
             "amenities": [
                 "Buffet",
                 "A La Carte Dining",
@@ -36,6 +36,22 @@
             ],
             "description": "Nestled in the Tom Bradley International Terminal (TBIT) at Los Angeles International Airport, the LAX International Lounge offers a refined sanctuary for global travelers. With plush seating, gourmet dining, private workspaces, complimentary WiFi, and spa-style shower suites, it's designed to help guests relax, refresh, or work in comfort before their international flights.",
             "img_url": "https://ca-times.brightspotcdn.com/dims4/default/39a58f4/2147483647/strip/true/crop/1227x674+0+0/resize/1200x659!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Fce%2Fa7%2Fdc4acbd14b4c933341b593975173%2Flax-rendering-2.png"
+        },
+        {
+            "id": "0003",
+            "name": "London City International Lounge",
+            "airport": "London City",
+            "included_with": "Business",
+            "points": "150",
+            "available": true,
+            "price_aud": "30",
+            "amenities": [
+                "Buffet",
+                "Bar",
+                "Sports Viewing Area"
+            ],
+            "description": "The LCY Lounge provides a calm, contemporary space tailored for business and premium travelers. Located just steps from the departure gates, it features comfortable seating, complimentary Wi-Fi, light refreshments, and panoramic runway views. Designed with efficiency and convenience in mind, the lounge offers a refined environment to relax or catch up on work before your short-haul or European flight.",
+            "img_url": "https://www.headforpoints.com/wp-content/uploads/2017/04/IMG_7443-1.jpg"
         }
     ]
 }

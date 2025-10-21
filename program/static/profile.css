@@ -6,3 +6,62 @@ h1 {
 .profileContent {
     font-size: 25px;
 }
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 32px;
+    color: #004aad;
+}
+
+.profileContent {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 60%;
+    margin: 40px auto;
+    padding: 30px 40px;
+    line-height: 1.6;
+}
+
+.profileContent p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.profileContent ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.profileContent li {
+    background-color: #eef3f8;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    transition: background 0.2s ease;
+}
+
+.profileContent li:hover {
+    background-color: #dce7f3;
+}
+
+.profileContent a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #004aad;
+    font-weight: 500;
+}
+
+.profileContent a:hover {
+    text-decoration: underline;
+}

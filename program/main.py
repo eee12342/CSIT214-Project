@@ -154,7 +154,7 @@ def explore():
         booked_ids = [l["id"] for l in get_booked_lounges()]
     else:
         lounge_data = get_lounge_data_from_json().get("lounges")
-        booked_ids = None
+        booked_ids = []
 
     print(lounge_data)
 
@@ -278,6 +278,9 @@ def pay():
     lounge = get_lounge_by_id(lounge_id)
     lounge_point_cost = int(lounge["points"])
 
+    if not request.form.get("start_time") or not request.form.get("start_time") or not request.form.get("date"):
+        return redirect(url_for("book", lounge_id=lounge_id, message="Please enter all fields below"))
+
     fmt = "%H:%M"
     time1 = datetime.strptime(request.form["end_time"], fmt)
     time2 = datetime.strptime(request.form["start_time"], fmt)
@@ -304,11 +307,12 @@ def profile():
         username = User.username
         user_data = get_user_data()[username]
 
-        bookings = user_data["bookings"]
+        bookings = user_data.get("bookings")
         lounge_details = []
-        for booking in bookings:
-            booking_id = booking["id"]
-            lounge_details.append(get_lounge_by_id(booking_id))
+        if bookings:
+            for booking in bookings:
+                booking_id = booking["id"]
+                lounge_details.append(get_lounge_by_id(booking_id))
 
         return render_template("profile.html", username=username, user_data=user_data, bookings=lounge_details)
     else:

@@ -1,4 +1,7 @@
 {% macro lounge_card(lounge, booked_ids) %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lounge-card.css') }}" />
+    </head>
     <div class="airportContainer">
         <table>
             <tr>
@@ -18,7 +21,7 @@
                 <td>{{ lounge["points"] }}</td>
             </tr>
             <tr>
-                <td>Price: </td>
+                <td>Price per hour: </td>
                 <td>${{ lounge["price_aud"] }} AUD</td>
             </tr>
             <tr>

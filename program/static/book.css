@@ -31,3 +31,99 @@ h3 {
     margin-right: auto;
     font-size: 20px;
 }
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+h3 {
+    font-size: 26px;
+    color: #004aad;
+    margin-bottom: 25px;
+}
+
+form {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 30px 40px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.dateTimeForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.dateTimeForm input[type="date"],
+.dateTimeForm input[type="time"] {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 70%;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dateTimeForm input[type="date"]:focus,
+.dateTimeForm input[type="time"]:focus {
+    outline: none;
+    border-color: #004aad;
+    box-shadow: 0 0 5px rgba(0,74,173,0.3);
+}
+
+.paymentOptionContainer {
+    background-color: #eef3f8;
+    border-radius: 10px;
+    width: 80%;
+    text-align: left;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s ease;
+}
+
+.paymentOptionContainer:hover {
+    background-color: #dce7f3;
+}
+
+button {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background-color: #00357a;
+}
+
+p {
+    font-size: 16px;
+}

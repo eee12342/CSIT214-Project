@@ -1,37 +1,15 @@
 {
     "eamon": {
-        "points": 0,
-        "bookings": [
-            {
-                "id": "0001",
-                "start_time": "11:00",
-                "end_time": "16:00",
-                "date": "2025-11-20"
-            },
-            {
-                "id": "0001",
-                "start_time": "11:00",
-                "end_time": "17:00",
-                "date": "2025-12-12"
-            },
-            {
-                "id": "0001",
-                "start_time": "11:00",
-                "end_time": "12:00",
-                "date": "2025-12-12"
-            },
-            {
-                "id": "0001",
-                "start_time": "18:00",
-                "end_time": "00:00",
-                "date": "2025-12-12"
-            },
-            {
-                "id": "0001",
-                "start_time": "18:00",
-                "end_time": "00:00",
-                "date": "2025-12-12"
-            }
-        ]
+        "points": 800.0,
+        "bookings": []
+    },
+    "bobby": {
+        "points": 0
+    },
+    "billy": {
+        "points": 0
+    },
+    "johnny1234": {
+        "points": 0
     }
 }
