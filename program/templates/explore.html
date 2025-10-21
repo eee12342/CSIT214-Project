@@ -9,7 +9,7 @@
         {% from "lounge-card.html" import lounge_card %}
         <div class="main">
             {% for lounge in lounge_data %}
-                {{ lounge_card(lounge) }}
+                {{ lounge_card(lounge, booked_ids) }}
             {% endfor %}
         </div>
     </body>

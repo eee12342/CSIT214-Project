@@ -1,4 +1,4 @@
-{% macro lounge_card(lounge) %}
+{% macro lounge_card(lounge, booked_ids) %}
     <div class="airportContainer">
         <table>
             <tr>
@@ -34,7 +34,7 @@
         </table>
         <br />
         <br />
-        {% if lounge in booked_lounges %}
+        {% if lounge["id"] not in booked_ids %}
             <button><a href="{{ url_for('book', lounge_id=lounge['id']) }}">Book now!</a></button>
         {% else %}
             <button><a href="{{ url_for('book', lounge_id=lounge['id']) }}">Make another booking!</a></button>

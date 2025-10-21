@@ -113,10 +113,16 @@ def get_booked_lounges():
 
 def cancel_booking(id):
     user_data = get_user_data()
+    lounges_to_remove = []
     for i in range(len(user_data[User.username]["bookings"])):
         booking = user_data[User.username]["bookings"][i]
         if booking["id"] == id:
-            user_data[User.username]["bookings"][i] = None
+            lounges_to_remove.append(booking)
+    user_data[User.username]["bookings"] = [i for i in user_data[User.username]["bookings"] if i not in lounges_to_remove]
+
+
+    if user_data[User.username]["bookings"] == lounges_to_remove:
+        user_data[User.username]["bookings"] = []
     
     save_user_data(user_data)
 
@@ -132,19 +138,26 @@ def hello_world():
     return render_template("index.html", user=User)
 
 # explore lounges page
-@app.route("/explore")
+@app.route("/explore", methods=["GET", "POST"])
 def explore():
-    query = request.form.get("query")
-    if request.args.get("query") == "booked":
-        lounge_data = get_booked_lounges()
-    elif query:
-        lounge_data = get_searched_lounge_data(query)
-    if not lounge_data:
+    if User.get_login_status():
+        query = request.form.get("query")
+        lounge_data = ""
+        if request.args.get("query") == "booked":
+            lounge_data = get_booked_lounges()
+        elif query:
+            lounge_data = get_searched_lounge_data(query)
+        if not lounge_data:
+            lounge_data = get_lounge_data_from_json().get("lounges")
+
+        booked_ids = [l["id"] for l in get_booked_lounges()]
+    else:
         lounge_data = get_lounge_data_from_json().get("lounges")
+        booked_ids = None
 
-    booked_lounges = get_booked_lounges()
+    print(lounge_data)
 
-    return render_template("explore.html", lounge_data=lounge_data, booked_lounges=booked_lounges)
+    return render_template("explore.html", lounge_data=lounge_data, booked_ids=booked_ids)
 
 
 
