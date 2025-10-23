@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>Memberships</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='memberships.css') }}">
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    <main class="memberships-wrap">
+      <h1>Membership Plans</h1>
+      <p class="intro">
+        Choose a FlyDream Air membership that suits your travel needs. Each plan offers exclusive benefits and lounge access.
+      </p>
+
+      <div class="plans-container">
+        <div class="plan-card">
+          <h2>Silver</h2>
+          <p class="price">$99/year</p>
+          <ul>
+            <li>Access to select domestic lounges</li>
+            <li>Earn 1x points on lounge bookings</li>
+            <li>Priority customer support</li>
+          </ul>
+          <button>Join Silver</button>
+        </div>
+
+        <div class="plan-card highlight">
+          <h2>Gold</h2>
+          <p class="price">$199/year</p>
+          <ul>
+            <li>Access to all domestic lounges</li>
+            <li>Earn 2x points on lounge bookings</li>
+            <li>Complimentary drink voucher each visit</li>
+          </ul>
+          <button>Join Gold</button>
+        </div>
+
+        <div class="plan-card">
+          <h2>Platinum</h2>
+          <p class="price">$399/year</p>
+          <ul>
+            <li>Access to all domestic & international lounges</li>
+            <li>Earn 3x points on lounge bookings</li>
+            <li>Free guest entry (1 per visit)</li>
+            <li>Dedicated support line</li>
+          </ul>
+          <button>Join Platinum</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
