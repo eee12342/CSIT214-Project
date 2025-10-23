@@ -4,50 +4,86 @@
         <script src="{{ url_for('static', filename='homepage.js') }}"></script>
         <style>
             body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-}
+                margin: 0;
+                font-family: "Segoe UI", Arial, sans-serif;
+                background-color: #f5f7fa;
+                color: #333;
+            }
 
-.sideNav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 250px;
-    background-color: #004aad;
-    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 60px;
-    transition: width 0.3s ease, transform 0.3s ease;
-    z-index: 10;
-}
+            .sideNav {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 250px;
+                background-color: #004aad;
+                box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 60px;
+                transition: width 0.3s ease, transform 0.3s ease;
+                z-index: 10;
+            }
 
-.sideNav.closed {
-    transform: translateX(-220px);
-}
+            .sideNav.closed {
+                transform: translateX(-220px);
+            }
 
-#sideBarButton {
-    position: absolute;
-    top: 20px;
-    right: -20px;
-    background-color: #004aad;
-    color: #fff;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    padding: 8px 10px;
-    cursor: pointer;
-    font-size: 18px;
-    box-shadow: 2px 0 6px rgba(0,0,0,0.2);
-    transition: background 0.2s ease;
-}
+            #sideBarButton {
+                position: absolute;
+                top: 20px;
+                right: -20px;
+                background-color: #004aad;
+                color: #fff;
+                border: none;
+                border-radius: 0 5px 5px 0;
+                padding: 8px 10px;
+                cursor: pointer;
+                font-size: 18px;
+                box-shadow: 2px 0 6px rgba(0,0,0,0.2);
+                transition: background 0.2s ease;
+            }
 
-#sideBarButton:hover {
-    background-color: #00357a;
-}
+            #sideBarButton:hover {
+                background-color: #00357a;
+            }
+
+            .sideBarLinks {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .sideBarLinks a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 18px;
+                font-weight: 500;
+                transition: color 0.2s ease, transform 0.2s ease;
+            }
+
+            .sideBarLinks a:hover {
+                color: #d0e4ff;
+                transform: scale(1.05);
+            }
+
+            .topMenuItems.left {
+                position: relative;
+            }
+
+            @media (max-width: 768px) {
+                .sideNav {
+                    width: 200px;
+                    padding-top: 40px;
+                }
+
+                .sideBarLinks a {
+                    font-size: 16px;
+                }
+            }
+
 
 
         </style>
