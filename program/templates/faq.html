@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>FAQ</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='faq.css') }}">
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    <main class="faq-wrap">
+      <h1>Frequently Asked Questions</h1>
+
+      <section class="faq-group">
+        <h2>General</h2>
+
+        <details class="faq-item" open>
+          <summary class="faq-q">What is FlyDream Air?</summary>
+          <div class="faq-a">
+            FlyDream Air is an airline offering domestic and international flights with lounges, memberships, and rewards.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">How do I create an account?</summary>
+          <div class="faq-a">
+            Go to the signup page, enter a unique username and password, then follow the prompts to complete registration.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Where can I see my bookings?</summary>
+          <div class="faq-a">
+            Open your profile page to view and manage current and past bookings.
+          </div>
+        </details>
+      </section>
+
+      <section class="faq-group">
+        <h2>Lounges & Bookings</h2>
+
+        <details class="faq-item">
+          <summary class="faq-q">How do I book a lounge?</summary>
+          <div class="faq-a">
+            Visit the Explore page, choose a lounge, select a date and time, then confirm on the pay page.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Can I cancel a lounge booking?</summary>
+          <div class="faq-a">
+            Yes. Go to your profile, find the booking, and select Cancel booking. Cancellation windows may apply.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">What amenities are included?</summary>
+          <div class="faq-a">
+            Amenities vary by lounge and may include Wi-Fi, showers, food and beverages, and quiet work areas. See each lounge page for details.
+          </div>
+        </details>
+      </section>
+
+      <section class="faq-group">
+        <h2>Payments & Points</h2>
+
+        <details class="faq-item">
+          <summary class="faq-q">How can I pay?</summary>
+          <div class="faq-a">
+            You can pay with a credit card or redeem points where available during checkout.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">How do I earn points?</summary>
+          <div class="faq-a">
+            Earn points by booking lounges and eligible purchases. Points are shown on your profile page.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-q">Do points expire?</summary>
+          <div class="faq-a">
+            Points expiration policies may vary. Check your profile or program terms for the current policy.
+          </div>
+        </details>
+      </section>
+    </main>
+  </body>
+</html>
