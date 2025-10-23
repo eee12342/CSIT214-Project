@@ -318,6 +318,11 @@ def cancel():
     return redirect(url_for("hello_world"))
 
 
+@app.route("/memberships")
+def memberships():
+    return render_template("membership.html")
+
+
 @app.route("/faq")
 def faq():
     return render_template("faq.html")
