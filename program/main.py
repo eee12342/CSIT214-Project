@@ -134,8 +134,6 @@ def cancel_booking(id):
 def hello_world():
     if User.get_login_status():
         refresh_points()
-    print(User.get_login_status())
-    print(get_user_data())
     return render_template("index.html", user=User)
 
 # explore lounges page
@@ -155,8 +153,6 @@ def explore():
     else:
         lounge_data = get_lounge_data_from_json().get("lounges")
         booked_ids = []
-
-    print(lounge_data)
 
     return render_template("explore.html", lounge_data=lounge_data, booked_ids=booked_ids)
 
@@ -179,7 +175,6 @@ def signup():
         sha256_hash = hashlib.sha256()
         sha256_hash.update(request.form["password"].encode('utf-8'))
         hashed_password = sha256_hash.hexdigest()
-        print(hashed_password)
 
         users[username] = hashed_password
 
@@ -216,7 +211,6 @@ def login():
         sha256_hash = hashlib.sha256()
         sha256_hash.update(request.form["password"].encode('utf-8'))
         hashed_password = sha256_hash.hexdigest()
-        print(hashed_password)
 
         # open the user database
         users = get_user_from_json()
@@ -227,7 +221,6 @@ def login():
         if matched_password:
             # this asks does their password hash match the hashed password from the user
             if matched_password == hashed_password:
-                print("LOGIN SUCCESS")
                 # we are now logged in
                 User.set_login_status(True)
                 User.set_error_msg("")
@@ -243,7 +236,6 @@ def login():
             User.set_error_msg("This username is not associated with an account. Please try again or create an account.")
             return redirect(url_for("login"))
 
-        print(User.get_login_status())
         # go back to the landing page 
         return redirect(url_for("hello_world"))
     
@@ -264,7 +256,6 @@ def logout():
 # customer makes booking
 @app.route("/book")
 def book():
-    print(User.get_login_status())
     if not User.get_login_status():
         User.current_page = "explore"
         return redirect(url_for("login"))
