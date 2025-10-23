@@ -1,6 +1,6 @@
 {
     "eamon": {
-        "points": 800.0,
+        "points": 400.0,
         "bookings": []
     },
     "bobby": {
@@ -11,5 +11,16 @@
     },
     "johnny1234": {
         "points": 0
+    },
+    "eamon123": {
+        "points": 900.0,
+        "bookings": [
+            {
+                "id": "0003",
+                "start_time": "09:30",
+                "end_time": "15:30",
+                "date": "2025-11-12"
+            }
+        ]
     }
 }

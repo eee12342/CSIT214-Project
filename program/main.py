@@ -278,7 +278,7 @@ def pay():
     lounge = get_lounge_by_id(lounge_id)
     lounge_point_cost = int(lounge["points"])
 
-    if not request.form.get("start_time") or not request.form.get("start_time") or not request.form.get("date"):
+    if not request.form.get("start_time") or not request.form.get("end_time") or not request.form.get("booking_date"):
         return redirect(url_for("book", lounge_id=lounge_id, message="Please enter all fields below"))
 
     fmt = "%H:%M"
@@ -294,7 +294,7 @@ def pay():
         
         
         point_cost = int(lounge["points"]) * booking_time * 4
-        if point_cost > int(lounge["points"]):
+        if point_cost > get_user_data()[User.username]["points"]:
             return redirect(url_for("book", lounge_id=lounge["id"], message="Not enough points for this booking"))
         add_points(-point_cost)
     
